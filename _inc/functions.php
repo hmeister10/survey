@@ -69,19 +69,25 @@
 			//echo "confirm".confirm_query($result_set);
 			if(mysql_num_rows($result_set)==1)
 			{
-				return true;
+				return 1;
 				
 			}
+			elseif (mysql_num_rows($result_set)<1) {
+				return 0;
+			}
 			else{
-				return false;
+				
+				return 2;
 			}
 
 	}
 
 
 	function insertNewPledge($uName, $uEmail, $uSL){
-	
-		if(!previousPledge($uEmail)){
+		
+		$prev = previousPledge($uEmail);
+		
+		if($prev != 0){
 			return false;
 		}
 

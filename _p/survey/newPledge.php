@@ -10,8 +10,8 @@
 	$pledgeFlag = true;
 
 
-	if(isset($_POST['plegde'])){
-
+	if(isset($_POST['pledge'])){
+		
 
 
 		if(isset($_POST['name'])){
@@ -24,7 +24,9 @@
 
 
 		if(isset($_POST['email'])){
+
 			$email = $_POST['email'];
+
 		}
 		else{
 			$pledgeFlag = false;
