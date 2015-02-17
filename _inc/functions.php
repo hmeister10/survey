@@ -86,7 +86,7 @@
 	function insertNewPledge($uName, $uEmail, $uSL){
 		
 		$prev = previousPledge($uEmail);
-		
+
 		if($prev != 0){
 			return false;
 		}
@@ -100,6 +100,7 @@
 				$result= mysql_query($query);
 
 				if($result){
+					
 					
 					return true;
 					

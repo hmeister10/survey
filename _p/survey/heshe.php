@@ -1,4 +1,4 @@
-<?php ?>
+
 
 
 <div id="formContainer">
@@ -16,7 +16,7 @@
 </div>
 
 <div>
-<h1 id="count">
+<h1 id="h1Count">
 
 
 </h1>

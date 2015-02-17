@@ -17,13 +17,15 @@ $(document).ready(function(){
 					if(data.hasOwnProperty('success')){
 							//show success modal
 						alert('success');
+						
 					}
 					else{
-							//show error modal
-					alert('errror');
+						//show error modal
+						alert('errror');
+						
 					}
 
-
+					showCount();
 
 
 				}
@@ -78,22 +80,26 @@ $(document).ready(function(){
 
 		if(submit){
 			addNewPledge(name, email, SL);
-
+			
 		}
 
 
 	})	
 
-
 	showCount = function(){
 		var req = {};
 		$.post("_p/survey/count.json",req, function(data){
+
+			
 			$('#h1Count').html(data.count);
+
 		});
 
 	}
 
-	var timer=window.setInterval(showCount(), '500')
+
+	showCount();
+	var countTimer = window.setInterval(showCount, '10000');
 
 
 	
