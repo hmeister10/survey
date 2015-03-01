@@ -141,6 +141,28 @@
 
 	}
 
+	function getJSON(){
+		$url = "../../_p/survey/count.json";
+		$data = file_get_contents($url);
+		return json_decode($data);
+
+	}
+
+
+
+	function getMaleCount(){
+		$countJSON = getJSON();
+		//print_r($countJSON);
+		return $countJSON->maleCount;
+
+	}
+
+
+	function getFemaleCount(){
+		$countJSON = getJSON();
+		//print_r($countJSON);
+		return $countJSON->femaleCount;
+	}
 
 
 

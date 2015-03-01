@@ -99,7 +99,7 @@ $(document).ready(function(){
 
 
 	showCount();
-	var countTimer = window.setInterval(showCount, '10000');
+	//var countTimer = window.setInterval(showCount, '10000');
 
 
 	

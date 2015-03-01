@@ -21,9 +21,10 @@
 				
 
 					
-					<div  class="container">
+					<div  class="">
 						<div id="content">
-							<?php  include('_p/survey/heshe.php'); ?>
+							<?php  //include('_p/survey/heshe.php'); ?>
+							<?php include('_inc/scrollContent.php') ?>
 						</div>
 						
 					</div>

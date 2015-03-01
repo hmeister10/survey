@@ -1,78 +1,44 @@
 <?php 
 	
-	header('Content-Type: application/json');
-	
 	include('../../_inc/functions.php');
 
-	$name = '';
-	$email = '';
-	$SL = '';
-	$pledgeFlag = true;
-
-
-	if(isset($_POST['plegde'])){
-
-
-
-		if(isset($_POST['name'])){
-			$name = $_POST['name'];
-		}
-		else{
-			$pledgeFlag = false;
-		}
-		
-
-
-		if(isset($_POST['email'])){
-			$email = $_POST['email'];
-		}
-		else{
-			$pledgeFlag = false;
-		}
-
-
-		if(isset($_POST['sl'])){
-			$SL = $_POST['sl'];
-		}
-		else{
-			$pledgeFlag = false;
-		}
-
-
-	}
-
-	$successJSON = array("success"=>'true');
-	$errorJSON = array("error"=>'true');
-
-	if($pledgeFlag){
-
-		$x =  insertNewPledge($name, $email, $SL);
-
-			//update count JSON
-			$count = getCount();
-			$countJSON = array("count"=>$count);
-			
-		if($x){
-
-			file_put_contents("count.json",$count);
-			echo  json_encode($successJSON);
-		}
-		else {
-			file_put_contents("count.json",$count);
-			echo  json_encode($errorJSON);
-		}
-
-	}
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
+
+
+
+<html>
+<head>
+	<title>Survey Result</title>
+
+	<?php include_once('../../_inc/_c/head.php');?>
+</head>
+<body >
+<div class="container">
+	<h3 id="male">Male: <span><?php echo getMaleCount(); ?></span></h3>
+	<h3 id="female">Female: <span><?php echo getFemaleCount(); ?></span></h3>
+
+	<input id="reset" type="button" value="Reset Counter">
+</div>
+	
+	<script type="text/javascript">
+
+		$('#reset').on('click', function(){
+
+			$.post('reset.php',
+			{
+				'reset':true
+			},
+			function(data){
+				$('#male span').html(data.maleCount)
+				$('#female span').html(data.femaleCount)
+			})
+
+		});
+
+
+	</script>
+
+
+
+</body>
+</html>

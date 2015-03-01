@@ -23,7 +23,7 @@
 	<script type="text/javascript" src="/survey/resources/js/canvasjs.min.js"></script>
 	
 -->
-
+	<script type="text/javascript" src="/survey/resources/js/clickHandlers.js"></script>
 	<script type="text/javascript" src="/survey/resources/js/scripts.js"></script>
 
 	
